@@ -1,12 +1,12 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { getAuth, GoogleAuthProvider } from "firebase/auth";
+import { getDatabase } from "firebase/database";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyAB79uxi1R-bBuy4kKLXps1IzfkieftDxk",
   authDomain: "latestmock-951e5.firebaseapp.com",
+  databaseURL: "https://latestmock-951e5-default-rtdb.firebaseio.com",
   projectId: "latestmock-951e5",
   storageBucket: "latestmock-951e5.firebasestorage.app",
   messagingSenderId: "275309936451",
@@ -15,3 +15,10 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+const database = getDatabase(app);
+
+export { auth, provider, database };
+
+

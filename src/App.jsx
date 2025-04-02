@@ -1,15 +1,20 @@
-import React from 'react'
-import { BrowserRouter } from 'react-router-dom'
-import Navbar from './components/Navbar'
+import React from "react";
+import { useSelector } from "react-redux";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
 
 const App = () => {
-  return (
-    <Provider store={store}>
-        <BrowserRouter>
-           <Navbar/>
-        </BrowserRouter>
-    </Provider>
-  )
-}
+  const user = useSelector((state) => state.auth.user);
 
-export default App
+  return (
+    <div>
+      <Navbar /> {/* Ensure Navbar is included */}
+      {user ? <Dashboard /> : <Login />}
+    </div>
+  );
+};
+
+export default App;
+
+
